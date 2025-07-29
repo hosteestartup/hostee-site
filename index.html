@@ -1,85 +1,226 @@
 <!doctype html>
-<html lang=en>
+<html lang="en">
 <head>
-<meta charset=UTF-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<title>Host.ee</title>
-<meta name=description content="Host.ee - Engajamento Empresarial - @Todos os Direitos Reservados- 2025">
-<link rel=icon type=image/jpg href=LogoHostee.jpg>
-<link href=https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css rel=stylesheet>
-<script src=https://unpkg.com/vue@3.5.13/dist/vue.global.js></script>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Host.ee</title>
+  <meta name="description" content="Host.ee - Engajamento Empresarial - @Todos os Direitos Reservados - 2025">
+
+  <!-- FAVICON .ico -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Vue 3 -->
+  <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<!--Codificado por; Lucas Martins. tenta copiar ai invejoso!-->
+
+<!--Codificado por: Lucas Martins. tenta copiar ai invejoso!-->
 <body class="bg-black min-h-screen">
-<div id=app class="container mx-auto px-2">
-<div v-if=introComplete class="fixed top-0 left-0 w-full bg-black border-b border-green-500 z-50">
-<div class="container mx-auto px-3 py-4 flex justify-between items-center">
-<div>
-<img src=LogoHostee.png alt="Host.ee Logo" class=h-8>
-</div>
-<div class="hamburger-menu cursor-pointer" @click=toggleMenu>
-<div class="w-6 h-0.5 bg-green-500 mb-1"></div>
-<div class="w-6 h-0.5 bg-green-500 mb-1"></div>
-<div class="w-6 h-0.5 bg-green-500"></div>
-</div>
-</div>
-<div class=mt-3>
-<div v-if=menuOpen class="menu-dropdown bg-black border border-green-500 absolute right-4 mt-1 py-2 px-4 z-50">
-<div class="py-2 cursor-pointer text-green-500 font-mono" @click="showPage('home')">Home</div>
-<div class="py-2 cursor-pointer text-green-500 font-mono" @click="showPage('sobre')">Sobre</div>
-<div class="py-2 cursor-pointer text-green-500 font-mono" @click="showPage('contato')">Contato</div>
-</div>
-</div>
-</div>
-<div v-if=!introComplete class="matrix-intro h-screen flex items-center justify-center">
-<div class="glitch-container absolute top-0 left-0 w-full h-full pointer-events-none">
-<div v-for="glitch in glitches" :key=glitch.id class="glitch-text absolute text-green-500 font-mono text-sm opacity-70" :style="{ top: glitch.top + '%', left: glitch.left + '%' }">{{ glitch.text }}</div>
-</div>
-<div class="text-green-500 font-mono text-lg md:text-xl" v-html=matrixText></div>
-</div>
-<div v-if="introComplete && currentPage === 'home'" class="countdown-container h-screen flex flex-col items-center justify-center">
-<div class="text-green-400 text-xl md:text-3xl font-mono mb-1">Faça parte do 1%</div>
-<div class="text-green-500 text-4xl md:text-6xl font-mono mb-4">
-<span>{{ days }}d </span>
-<span>{{ hours }}h </span>
-<span>{{ minutes }}m </span>
-<span>{{ seconds }}s</span>
-</div>
-<div class="text-green-400 text-2xl md:text-4xl font-mono mb-2">Host.ee</div>
-<div class="text-green-400 text-lg font-mono mt-2 mb-2">Clique em uma das opções abaixo.</div>
-<div class="glitch-container absolute top-0 left-0 w-full h-full pointer-events-none">
-<div v-for="glitch in glitches" :key=glitch.id class="glitch-text absolute text-green-500 font-mono text-sm opacity-70" :style="{ top: glitch.top + '%', left: glitch.left + '%' }">{{ glitch.text }}</div>
-</div>
-<div class="flex gap-3 flex-col md:flex-row">
-<a href=https://instagram.com/host.ee class="text-green-500 text-xl font-mono border border-green-500 px-4 py-2 hover:bg-green-900 transition-colors duration-300">Nosso instagram</a>
-<a href=https://forms.gle/8rfcNkK7VMZY4fJaA class="text-green-500 text-xl font-mono border border-green-500 px-4 py-2 hover:bg-green-900 transition-colors duration-300">Formulário</a>
-<a href=https://instagram.com/colegiocruzeirodosul class="text-green-500 text-xl font-mono border border-green-500 px-4 py-2 hover:bg-green-900 transition-colors duration-300">Perfil do colégio</a>
-</div>
-</div>
-<div v-if="introComplete && currentPage === 'sobre'" class="page-container pt-20 h-screen flex flex-col items-center">
-<div class="text-green-400 text-3xl font-mono mb-6">Sobre Nós</div>
-<div class="text-green-500 font-mono max-w-2xl text-center mb-8">
-<p class=mb-4> A Host.ee é uma startup inovadora dedicada à automatização de processos e à otimização do tempo para empresas e prestadores de serviços.</p>
-<p class=mb-4> Nosso objetivo é proporcionar uma experiência fluida e eficiente por meio de nossa plataforma em desenvolvimento, facilitando o agendamento, a gestão e a interação entre negócios e clientes.</p>
-<p class=mb-4> Neste período inicial, adotamos uma abordagem estratégica ao manter determinadas informações em sigilo, garantindo que cada detalhe seja revelado no momento ideal, Tudo isso faz parte do processo.</p>
-<p class=mb-4> Lançaremos oficialmente a Host.ee, trazendo todas as funcionalidades que transformarão a forma como você gerencia e automatiza seus serviços.</p>
-</div>
-<div class="glitch-container absolute top-0 left-0 w-full h-full pointer-events-none">
-<div v-for="glitch in glitches" :key=glitch.id class="glitch-text absolute text-green-500 font-mono text-sm opacity-70" :style="{ top: glitch.top + '%', left: glitch.left + '%' }">{{ glitch.text }}</div>
-</div>
-</div>
-<div v-if="introComplete && currentPage === 'contato'" class="page-container pt-20 h-screen flex flex-col items-center">
-<div class="text-green-400 text-3xl font-mono mb-6">Entre em Contato</div>
-<div class="text-green-500 font-mono max-w-2xl text-center">
-<p class=mb-6>Estamos disponíveis para responder suas dúvidas e ouvir suas ideias.</p>
-<p class=mb-2><i class="fas fa-envelope mr-2"></i> contato@hosteestartup.com.br</p>
-<p class=mb-2><i class="fas fa-phone mr-2"></i> (11) 98722-3521</p>
-<p><i class="fab fa-instagram mr-2"></i> @host.ee</p>
-</div>
-</div>
-</div>
-<script>const{createApp:createApp,ref:ref,onMounted:onMounted}=Vue;createApp({setup(){const e=ref(!1),t=ref("home"),a=ref(!1),r=ref(""),o=ref(100),l=ref(0),n=ref(0),u=ref(0),h=ref([]),f="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+{}[]|;:,./<>?";let v,m;const s=()=>{let e=0;v=setInterval((()=>{(()=>{let e="";for(let t=0;t<100;t++)e+=f.charAt(Math.floor(Math.random()*f.length)),t%10==0&&(e+="<br>");r.value=e})(),e++,e>1&&(clearInterval(v),a.value=!0,c(),M())}),100)},M=()=>{m=setInterval((()=>{let e;h.value.length>8&&h.value.shift(),e="Em breve..",h.value.push({id:Date.now()+Math.random(),text:"Em breve..",top:90*Math.random(),left:90*Math.random()})}),5e3)},c=()=>{new Date;let e;e=new Date("2025-09-01T00:00:00");const t=()=>{const t=new Date,a=e.getTime()-t.getTime();o.value=Math.max(0,Math.floor(a/864e5)),l.value=Math.max(0,Math.floor(a%864e5/36e5)),n.value=Math.max(0,Math.floor(a%36e5/6e4)),u.value=Math.max(0,Math.floor(a%6e4/1e3))};t(),setInterval((()=>{t()}),1e3)};return onMounted((()=>{s()})),{introComplete:a,menuOpen:e,currentPage:t,matrixText:r,days:o,hours:l,minutes:n,seconds:u,glitches:h,toggleMenu:()=>{e.value=!e.value},showPage:a=>{t.value=a,e.value=!1}}}}).mount("#app")</script>
-<style>@keyframes matrix-fade{from{opacity:0}to{opacity:1}}.matrix-intro{animation:matrix-fade .5s ease-in-out}.glitch-text{animation:glitch-appear 2s forwards;font-family:monospace;white-space:nowrap;z-index:10}.countdown-container{display:flex;justify-content:center;align-items:center;flex-direction:column;padding:0 1rem}@keyframes glitch-appear{0%{opacity:.7}80%{opacity:.7}100%{opacity:0}}.menu-dropdown{animation:dropdown .5s ease-in-out}@keyframes dropdown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.page-container{padding-top:80px}</style>
+  <div id="app" class="container mx-auto px-2">
+
+    <!-- Header fixo -->
+    <div v-if="introComplete" class="fixed top-0 left-0 w-full bg-black border-b border-green-500 z-50">
+      <div class="container mx-auto px-3 py-4 flex justify-between items-center">
+        <div>
+          <img src="LogoHostee.png" alt="Host.ee Logo" class="h-8">
+        </div>
+        <div class="hamburger-menu cursor-pointer" @click="toggleMenu">
+          <div class="w-6 h-0.5 bg-green-500 mb-1"></div>
+          <div class="w-6 h-0.5 bg-green-500 mb-1"></div>
+          <div class="w-6 h-0.5 bg-green-500"></div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div v-if="menuOpen" class="menu-dropdown bg-black border border-green-500 absolute right-4 mt-1 py-2 px-4 z-50">
+          <div class="py-2 cursor-pointer text-green-500 font-mono" @click="showPage('home')">Home</div>
+          <div class="py-2 cursor-pointer text-green-500 font-mono" @click="showPage('sobre')">Sobre</div>
+          <div class="py-2 cursor-pointer text-green-500 font-mono" @click="showPage('contato')">Contato</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Introdução estilo matrix -->
+    <div v-if="!introComplete" class="matrix-intro h-screen flex items-center justify-center">
+      <div class="glitch-container absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div v-for="glitch in glitches" :key="glitch.id" class="glitch-text absolute text-green-500 font-mono text-sm opacity-70" :style="{ top: glitch.top + '%', left: glitch.left + '%' }">{{ glitch.text }}</div>
+      </div>
+      <div class="text-green-500 font-mono text-lg md:text-xl" v-html="matrixText"></div>
+    </div>
+
+    <!-- Página HOME -->
+    <div v-if="introComplete && currentPage === 'home'" class="countdown-container h-screen flex flex-col items-center justify-center">
+      <div class="text-green-400 text-xl md:text-3xl font-mono mb-1">Faça parte do 1%</div>
+      <div class="text-green-500 text-4xl md:text-6xl font-mono mb-4">
+        <span>{{ days }}d </span>
+        <span>{{ hours }}h </span>
+        <span>{{ minutes }}m </span>
+        <span>{{ seconds }}s</span>
+      </div>
+      <div class="text-green-400 text-2xl md:text-4xl font-mono mb-2">Host.ee</div>
+      <div class="text-green-400 text-lg font-mono mt-2 mb-2">Clique em uma das opções abaixo.</div>
+      <div class="glitch-container absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div v-for="glitch in glitches" :key="glitch.id" class="glitch-text absolute text-green-500 font-mono text-sm opacity-70" :style="{ top: glitch.top + '%', left: glitch.left + '%' }">{{ glitch.text }}</div>
+      </div>
+      <div class="flex gap-3 flex-col md:flex-row">
+        <a href="https://instagram.com/host.ee" class="text-green-500 text-xl font-mono border border-green-500 px-4 py-2 hover:bg-green-900 transition-colors duration-300">Nosso instagram</a>
+        <a href="https://forms.gle/8rfcNkK7VMZY4fJaA" class="text-green-500 text-xl font-mono border border-green-500 px-4 py-2 hover:bg-green-900 transition-colors duration-300">Formulário</a>
+        <a href="https://instagram.com/colegiocruzeirodosul" class="text-green-500 text-xl font-mono border border-green-500 px-4 py-2 hover:bg-green-900 transition-colors duration-300">Perfil do colégio</a>
+      </div>
+    </div>
+
+    <!-- Página SOBRE -->
+    <div v-if="introComplete && currentPage === 'sobre'" class="page-container pt-20 h-screen flex flex-col items-center">
+      <div class="text-green-400 text-3xl font-mono mb-6">Sobre Nós</div>
+      <div class="text-green-500 font-mono max-w-2xl text-center mb-8">
+        <p class="mb-4">A Host.ee é uma startup inovadora dedicada à automatização de processos e à otimização do tempo para empresas e prestadores de serviços.</p>
+        <p class="mb-4">Nosso objetivo é proporcionar uma experiência fluida e eficiente por meio de nossa plataforma em desenvolvimento, facilitando o agendamento, a gestão e a interação entre negócios e clientes.</p>
+        <p class="mb-4">Neste período inicial, adotamos uma abordagem estratégica ao manter determinadas informações em sigilo, garantindo que cada detalhe seja revelado no momento ideal, tudo isso faz parte do processo.</p>
+        <p class="mb-4">Lançaremos oficialmente a Host.ee, trazendo todas as funcionalidades que transformarão a forma como você gerencia e automatiza seus serviços.</p>
+      </div>
+      <div class="glitch-container absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div v-for="glitch in glitches" :key="glitch.id" class="glitch-text absolute text-green-500 font-mono text-sm opacity-70" :style="{ top: glitch.top + '%', left: glitch.left + '%' }">{{ glitch.text }}</div>
+      </div>
+    </div>
+
+    <!-- Página CONTATO -->
+    <div v-if="introComplete && currentPage === 'contato'" class="page-container pt-20 h-screen flex flex-col items-center">
+      <div class="text-green-400 text-3xl font-mono mb-6">Entre em Contato</div>
+      <div class="text-green-500 font-mono max-w-2xl text-center">
+        <p class="mb-6">Estamos disponíveis para responder suas dúvidas e ouvir suas ideias.</p>
+        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> contato@hosteestartup.com.br</p>
+        <p class="mb-2"><i class="fas fa-phone mr-2"></i> (11) 98722-3521</p>
+        <p><i class="fab fa-instagram mr-2"></i> @host.ee</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Vue e funcionalidades -->
+  <script>
+    const { createApp, ref, onMounted } = Vue;
+
+    createApp({
+      setup() {
+        const menuOpen = ref(false);
+        const currentPage = ref("home");
+        const introComplete = ref(false);
+        const matrixText = ref("");
+        const days = ref(100);
+        const hours = ref(0);
+        const minutes = ref(0);
+        const seconds = ref(0);
+        const glitches = ref([]);
+        const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+{}[]|;:,./<>?";
+
+        let glitchInterval, matrixInterval;
+
+        const showMatrixIntro = () => {
+          let counter = 0;
+          matrixInterval = setInterval(() => {
+            let text = "";
+            for (let i = 0; i < 100; i++) {
+              text += matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+              if (i % 10 == 0) text += "<br>";
+            }
+            matrixText.value = text;
+            counter++;
+            if (counter > 1) {
+              clearInterval(matrixInterval);
+              introComplete.value = true;
+              startCountdown();
+              startGlitch();
+            }
+          }, 100);
+        };
+
+        const startGlitch = () => {
+          glitchInterval = setInterval(() => {
+            if (glitches.value.length > 8) glitches.value.shift();
+            glitches.value.push({
+              id: Date.now() + Math.random(),
+              text: "Em breve..",
+              top: Math.random() * 90,
+              left: Math.random() * 90
+            });
+          }, 5000);
+        };
+
+        const startCountdown = () => {
+          const targetDate = new Date("2025-09-01T00:00:00");
+          const updateCountdown = () => {
+            const now = new Date();
+            const distance = targetDate - now;
+            days.value = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+            hours.value = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            minutes.value = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+            seconds.value = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
+          };
+          updateCountdown();
+          setInterval(updateCountdown, 1000);
+        };
+
+        onMounted(() => {
+          showMatrixIntro();
+        });
+
+        return {
+          introComplete,
+          menuOpen,
+          currentPage,
+          matrixText,
+          days,
+          hours,
+          minutes,
+          seconds,
+          glitches,
+          toggleMenu: () => { menuOpen.value = !menuOpen.value; },
+          showPage: (page) => { currentPage.value = page; menuOpen.value = false; }
+        };
+      }
+    }).mount("#app");
+  </script>
+
+  <!-- Estilos personalizados -->
+  <style>
+    @keyframes matrix-fade {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+    .matrix-intro {
+      animation: matrix-fade .5s ease-in-out;
+    }
+    .glitch-text {
+      animation: glitch-appear 2s forwards;
+      font-family: monospace;
+      white-space: nowrap;
+      z-index: 10;
+    }
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+    @keyframes glitch-appear {
+      0% { opacity: .7 }
+      80% { opacity: .7 }
+      100% { opacity: 0 }
+    }
+    .menu-dropdown {
+      animation: dropdown .5s ease-in-out;
+    }
+    @keyframes dropdown {
+      from { opacity: 0; transform: translateY(-10px) }
+      to { opacity: 1; transform: translateY(0) }
+    }
+    .page-container {
+      padding-top: 80px;
+    }
+  </style>
 </body>
 </html>
